@@ -2,13 +2,10 @@
 This java library allows strict [ABNF](https://raw.githubusercontent.com/medooze/sdp/master/src/org/murillo/abnf/sdp.abnf) SDP parsing and serialization
 
 # Build
-```
-ant
-```
+Originally, this project used `ant` to build. It has been converted to use maven.
 
 # Javadoc
-
-https://medooze.github.io/sdp/ 
+Javadocs: https://medooze.github.io/sdp/ 
 
 # Example
 ``` java

@@ -1,0 +1,35 @@
+---
+box:
+  id: alpine-maven
+  aws-registry-id: $CPE_ECR_ID
+  aws-region: $CPE_ECR_REGION
+  aws-access-key: $CPE_AWS_ACCESS_KEY_ID
+  aws-secret-key: $CPE_AWS_SECRET_ACCESS_KEY
+
+dev:
+  - alianza/maven:
+      name: Compile and Test
+      goals: install
+
+prepare:
+  steps:
+
+build:
+  steps:
+  - alianza/maven:
+      name: Compile and Test
+      goals: install -P coverage
+
+  - script:
+    name: "Run sonar tests"
+    code: |
+      /bin/ash /root/run_sonar.sh
+release:
+  steps:
+  - script:
+      name: Fetch git tags before release
+      code: |
+        git checkout $WERCKER_GIT_BRANCH
+  - alianza/maven:
+      name: Compile, test and deploy artifacts to artifactory
+      goals: clean test release:prepare release:perform -DscmCommentPrefix='[skip ci]' -DtagNameFormat='v@{project.version}' -DdeployAtEnd=true -P coverage -P sources
