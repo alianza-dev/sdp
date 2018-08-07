@@ -20,6 +20,7 @@
 
     <properties>
         <slf4j.version>1.7.25</slf4j.version>
+        <basepom.check.skip-extended>true</basepom.check.skip-extended>
     </properties>
 
 </project>
