@@ -10,11 +10,11 @@
 
     <groupId>com.alianza.softswitch</groupId>
     <artifactId>sdp</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <scm>
         <developerConnection>scm:git:ssh://git@github.com/alianza-dev/sdp</developerConnection>
-      <tag>v1.0.0</tag>
+      <tag>HEAD</tag>
   </scm>
 
     <properties>
